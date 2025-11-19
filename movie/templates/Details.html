@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Details</h2>
+<div class="card mb-3 container border border-dark" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ movie.image.url}}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{movie.title}}</h5>
+        <p class="card-text">{{movie.year}}</p>
+        <p class="card-text"><small class="text-muted">{{movie.director}}</small></p>
+          <p class="card-text"><small class="text-muted">{{movie.language}}</small></p>
+      </div>
+    </div>
+      <div>
+          <a href="{% url 'delete' movie.id %}" class="btn btn-outline-danger">Delete</a>
+          <a href="{% url 'edit' movie.id %}" class="btn btn-outline-danger">Edit</a>
+
+      </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 p-5 w-50 border border-2 border-dark">
+
+<h2 class="text-center">BMI</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+
+        <div class="mb-3">
+  <label class="form-label">Weight</label>
+  <input type="number" class="form-control" name="w1"  value="{{w1}}">
+</div>
+
+
+              <div class="mb-3">
+  <label class="form-label">Height</label>
+  <input type="number" step="any"  class="form-control" name="h1"  value="{{h1}}">
+</div>
+
+        <div class="mb-3">
+<input type="submit" class="btn btn-light " value="BMI">
+</div>
+
+
+            {% if result %}
+    <h4>BMI is:{{result}}</h4>
+    {% endif %}
+
+
+    </form>
+
+</div>
+{% endblock %}

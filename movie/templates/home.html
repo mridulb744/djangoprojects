@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>movie list</h2>
+<!--<table class="table table-bordered">-->
+<!--    <tr>-->
+<!--        <th>Title</th>-->
+<!--        <th>Director</th>-->
+<!--        <th>Year</th>-->
+<!--        <th>Language</th>-->
+<!--        <th>image</th>-->
+<!--    </tr>-->
+<!--    {% for i in movieapp %}-->
+<!--    <tr>-->
+<!--        <td>{{i.title}}</td>-->
+<!--         <td>{{i.director}}</td>-->
+<!--         <td>{{i.year}}</td>-->
+<!--         <td>{{i.language}}</td>-->
+<!--        <td><img src="{{i.image.url}}" height="150px width=100px"></td>-->
+
+<!--    </tr>-->
+<!--{% endfor %}-->
+<!--</table>-->
+
+<!--<ol>-->
+<!--    {% for i in movieapp %}-->
+<!--    <li>Movie Details</li>-->
+<!--    <ul>-->
+<!--        <li>Title:{{i.title}}</li>-->
+<!--        <li>Director:{{i.director}}</li>-->
+<!--        <li>Language:{{i.language}}</li>-->
+<!--        <li>Image:<img src="{{i.image.url}} " height="100px" width="100px"></li>-->
+
+<!--    </ul>-->
+<!--    {% endfor %}-->
+<!--</ol>-->
+
+<div class="container">
+    <div class="row">
+        {% for i in movieapp %}
+        <div class="col-3"><div class="card mt-2 mb-2" style="width: 18rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" width="400px;">
+  <div class="card-body">
+    <h5 class="card-title">{{i.title}}</h5>
+    <p class="card-text">{{i.year}}</p>
+      <p class="card-text">{{i.director}}</p>
+      <p class="card-text">{{i.language}}</p>
+      <a href="{% url 'details' i.id %}">View details</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

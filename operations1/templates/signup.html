@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container mt-5 p-5 w-50 border border-2 border-dark">
+
+<h2 class="text-center">signup</h2>
+
+
+<form method="post">
+        {% csrf_token %}
+{{form|crispy}}
+      <input type="submit">
+        </form>
+
+
+    {% if result %}
+    <h4>signup is:{{result}}</h4>
+    {% endif %}
+
+</div>
+{% endblock %}
